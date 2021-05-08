@@ -3,7 +3,7 @@ title: Text and Typography
 author: Henry Oh
 date: 2021-04-19 11:33:00 +0800
 categories: [Markdown, Help]
-tags: [grammer]
+tags: [Markdown]
 math: true
 mermaid: true
 pin: true

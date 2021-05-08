@@ -2,7 +2,7 @@
 title: Swift) 1. Swift의 특징
 author: Henry Oh
 date: 2021-05-08 00:20:00 +0900
-categories: [Swift, Help]
+categories: [Swift,Grammer]
 tags: [Swift]
 image:
   src: https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/0.swift5.png
