@@ -41,35 +41,30 @@ aConstant = 100 // 컴파일 에러
 
 `let` 키워드로 선언된 상수 값을 변경할 수 없다는 에러입니다.
 
-<br><br>
+<br>
+
 ## 변수/상수 선언 방법
 
 Swift는 정적 타이핑 언어입니다. 쉽게 말해서 상수(변수)를 정의할 때 그 자료형(타입)이 무엇인지 명시해주어야 한다는 겁니다. 상수(변수)를 선언하는 방법은 아래와 같습니다.
 
-- **let  (상수명) :  (타입)  =  (값)**  
+- **let  (상수명):  (타입)  =  (값)**  
 상수(변수) 선언과 동시에 타입과  값을 선언해 줄 수 있습니다.
 
 ```swift
 let aConstant: Int = 10
 ```
+<br>
 
-- **var  (변수이름)  =  (값)**  
-상수(변수)를 초기화하지 않고 선언할 때 타입을 명시해주지 않으면 오류가 발생합니다. 하지만 스위프트는 *타입추론*을 할 수 있습니다. 타입추론이란 스위프트에서 상수(변수)가 선언될 때 초기화되는 값을 보고 컴파일러가 생성된 타입을 추론하여 지정해주는 것입니다. 단, 상수(변수)를 선언할 때 초기화해주지 않으면 오류가 발생합니다.
+- **var  (변수명)  =  (값)**  
+상수(변수)를 초기화하지 않고 선언할 때 타입을 명시해주지 않으면 오류가 발생합니다. 하지만 스위프트는 *타입추론*을 할 수 있습니다. 타입추론이란 스위프트에서 상수(변수)가 선언될 때 초기화되는 값을 보고 컴파일러가 생성된 타입을 추론하여 지정해주는 것입니다.
 
 ```swift
 var aVariable = 20
 
 var b Variable //	컴파일 오류
 ```
-![Initialize Error](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/3.annotation_missing_error.png){: width="500" .left}
-<br><br><br>
-
->Type annotation missing in pattern
-
-Type annotation이란 ": (타입)" 을 뜻합니다. 즉, 어떤 타입인지 지정해주지 않아서 발생하는 에러입니다.
-
-
-- **let  (상수이름) :  (타입)**  
+<br>
+- **let  (상수명):  (타입)**  
 상수(변수)와 타입만 선언해 주고 값은 프로그래밍하다가 나중에 필요할 때 선언해 줄 수 있습니다. 
 
 ```swift
@@ -81,6 +76,15 @@ aConstant = 10
 
 
 ### 주의해야 할 점
+타입추론이 가능 하더라도, 상수(변수) 선언과 동시에 초기화 해주지 않으면 컴파일러는 타입을 추론해주지 못합니다. 이럴 땐 꼭 타입을 명시해줘야 오류가 나지 않습니다.
+
+![Initialize Error](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/3.annotation_missing_error.png){: width="500" .left}  
+<br>
+
+>Type annotation missing in pattern
+
+Type annotation이란 ": (타입)" 을 뜻합니다. 즉, 어떤 타입인지 지정해주지 않아서 발생하는 에러입니다.
+
 상수(변수)를 선언만 하고 초기화 하지 않은 상태에서 값을 출력하려고 하면 오류가 발생합니다. C나 Java같은 다른 언어에서는 이렇게 하면 자동으로 null 값이 출력 되지만, 스위프트에서는 값을 nil로 초기화하지 않거나 선언을 옵셔널로 하지 않으면 컴파일 에러가 발생합니다.
 
 > 옵셔널에 관해서는 나중에 따로 다루도록 하겠습니다.  
@@ -98,7 +102,7 @@ print(aVariable) // 컴파일 에러
 
 변수가 초기화 되기 전에 사용되었다는 오류입니다.
 
-<br><br>
+<br>
 
 ## 데이터 타입
 
@@ -107,7 +111,7 @@ print(aVariable) // 컴파일 에러
 
 ### Bool
 
-true와 false 값만 가지는 타입니다. 
+true와 false 값만 가지는 타입입니다. 
 ```swift
 var aBool = true
 let bBool = false
@@ -115,9 +119,10 @@ let bBool = false
 
 ### Int & UInt
 
-정수 타입입니다 Int는 +, - 를 포함한 정수이며 UInt는 +값만 가지는, 즉 양의 정수만 표현할 수 있습니다.  
+정수 타입입니다. Int는 +, - 를 포함한 정수이며 UInt는 + 값만 가지는, 즉 양의 정수만 표현할 수 있습니다.  
 Int와 Uint형의 최대값과 최소값은 각각 max와 min 프로퍼티를 통해 확인 할 수 있습니다.  
 Int와 UInt는 각각 8비트, 16비트, 32비트, 64 비트의 형태를 가지고 있습니다.
+
 ```swift
 var aInteger: Int = -100
 let aUnsignedInteger: UInt = 100
@@ -131,10 +136,11 @@ UInt.min // 0
 
 ### Double & Float
 
-부동소수점을 사용하는 실수이며 부동소수 타입이라고 합니다. 우리가 흔히 이야기하는 소수점 자리가 있는 수입니다.  
+부동소수점을 사용하는 실수이며 부동소수 타입이라고 합니다. 우리가 흔히 이야기하는 소수점 자리가 있는 수 입니다.  
 Double은 64비트의 부동소수를 표현할 수 있고 Float는 32 비트를 표현할 수 있습니다.  
 64비트 환경에서 Double은 최소 15자리의 소수점을, Float은 6자리까지만 표햔이 가능합니다.   
 상황에 맞게 둘 중 하나를 선택하여 사용하면 되는데, 잘 모르겠으면 애플은 Double을 권장합니다.
+
 ```swift
 let aDouble: Double = 10.12345678987654321
 let aFloat: Float = 10.123456789
@@ -157,7 +163,6 @@ Character는 말 그래도 '문자'를 의미합니다.
 let aChar: Character = "A"
 let bChar: Character = "가"
 let cChar: Character = "😎"
-
 ```
 
 ### String
@@ -179,6 +184,9 @@ Any를 이용하면 상수 혹은 변수를 초기화 할 때 정수 값, 문자
 var aAny: Any = 100
 aAny = "어떤 타입이든 상관 없습니다."
 aAny = 123.456
+
+let bAny: Any
+bAny = "얘도 어떤 타입이 들어와도 상관없습니다." // 변경이 불가능합니다.
 ```
 
 ### AnyObject
