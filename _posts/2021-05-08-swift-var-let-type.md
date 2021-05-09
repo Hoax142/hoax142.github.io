@@ -10,13 +10,13 @@ image:
 
 
 <span style="color: #0281C3">
-안녕하세요. Hoax142입니다~  오늘 부터 Swift 문법에 대해 포스팅을 해보려고 합니다. 인강과 책을 통해 배운 부분들을 바탕으로 제 나름대로 정리를 했는데, 혹시 잘못된 부분이 있으면 댓글을 통해 알려주기면 최대한 빠르게 수정하도록 하겠습니다. (해당 글은 swift 5.4 버젼을 기준으로 작성했습니다.)
+안녕하세요. Hoax142입니다~  오늘 부터 Swift 문법에 대해 포스팅을 해보려고 합니다. 제 나름대로 정리를 했는데, 혹시 잘못된 부분이 있으면 댓글을 통해 알려주시면 최대한 빠르게 수정하도록 하겠습니다. (해당 글은 swift 5.4 버젼을 기준으로 작성했습니다.)
 </span>
 
 <br><br>
 ## 변수와 상수
 
-변수(variable)는 값을 수정할 수 있고, 상수(constant)는 값을 수정할 수 없습니다. Apple는 언제 어디서 바뀔지 모르는 변수보다는 상수를 사용하는 것을 권장해줍니다.  
+변수(variable)는 값을 수정할 수 있고, 상수(constant)는 값을 수정할 수 없습니다. 애플은 언제 어디서 바뀔지 모르는 변수보다는 상수를 사용하는 것을 권장해줍니다.  
 
 변수는 `var` 키워드로, 상수는 `let` 키워드로 선언을 합니다.
 ```swift
@@ -44,24 +44,33 @@ aConstant = 100 // 컴파일 에러
 <br><br>
 ## 변수/상수 선언 방법
 
-Swift의 자료형들을 보기 앞서 자료형을 선언하는 방법을 알아 보도록 하겠습니다. 변수 또는 상수를 선언하는 방법은 아래와 같습니다.
+Swift는 정적 타이핑 언어입니다. 쉽게 말해서 상수(변수)를 정의할 때 그 자료형(타입)이 무엇인지 명시해주어야 한다는 겁니다. 상수(변수)를 선언하는 방법은 아래와 같습니다.
 
 - **let  (상수명) :  (타입)  =  (값)**  
-상수 선언과 동시에 타입과  값을 선언해 줄 수 있습니다.
+상수(변수) 선언과 동시에 타입과  값을 선언해 줄 수 있습니다.
 
 ```swift
 let aConstant: Int = 10
 ```
 
 - **var  (변수이름)  =  (값)**  
-스위프트는 *타입추론*을 통해 변수나 상수를 생성할 때 컴파일러가 변수, 혹은 상수의 타입을 추론하여 지정해줍니다. 
+상수(변수)를 초기화하지 않고 선언할 때 타입을 명시해주지 않으면 오류가 발생합니다. 하지만 스위프트는 *타입추론*을 할 수 있습니다. 타입추론이란 스위프트에서 상수(변수)가 선언될 때 초기화되는 값을 보고 컴파일러가 생성된 타입을 추론하여 지정해주는 것입니다. 단, 상수(변수)를 선언할 때 초기화해주지 않으면 오류가 발생합니다.
 
 ```swift
 var aVariable = 20
+
+var b Variable //	컴파일 오류
 ```
+![Initialize Error](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/3.annotation_missing_error.png){: width="500" .left}
+<br><br><br>
+
+>Type annotation missing in pattern
+
+Type annotation이란 ": (타입)" 을 뜻합니다. 즉, 어떤 타입인지 지정해주지 않아서 발생하는 에러입니다.
+
 
 - **let  (상수이름) :  (타입)**  
-상수와 타입만 선언해 주고 값은 프로그래밍하다가 나중에 필요할 때 선언해 줄 수 있습니다.
+상수(변수)와 타입만 선언해 주고 값은 프로그래밍하다가 나중에 필요할 때 선언해 줄 수 있습니다. 
 
 ```swift
 let aConstant: Int
@@ -69,10 +78,31 @@ let aConstant: Int
 aConstant = 10
 ```
 
+
+
+### 주의해야 할 점
+상수(변수)를 선언만 하고 초기화 하지 않은 상태에서 값을 출력하려고 하면 오류가 발생합니다. C나 Java같은 다른 언어에서는 이렇게 하면 자동으로 null 값이 출력 되지만, 스위프트에서는 값을 nil로 초기화하지 않거나 선언을 옵셔널로 하지 않으면 컴파일 에러가 발생합니다.
+
+> 옵셔널에 관해서는 나중에 따로 다루도록 하겠습니다.  
+
+```swift
+var aVariable: Int
+
+print(aVariable) // 컴파일 에러
+```
+
+![Initialize Error](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/2.initialize_error.png){: width="500" .left}
+<br><br><br>
+
+>Variable 'aVariable' used before initialized
+
+변수가 초기화 되기 전에 사용되었다는 오류입니다.
+
 <br><br>
+
 ## 데이터 타입
 
-Swift는 정적 타이핑 언어입니다. 쉽게 말해서 변수나 상수를 정의할 때 그 자료형(타입)이 무엇인지 명시해주어야 한다는 겁니다. 그럼 Swift에는 어떤 자료형들이 있을까요?
+ 그럼 Swift에는 어떤 자료형들이 있을까요?
 
 
 ### Bool
@@ -174,21 +204,6 @@ var nothing: Int = nil
 print(nothing) // nil
 ```
 
-## 주의해야 할 점
 
-변수 혹은 상수를 선언만 하고 초기화 하지 않은 상태에서 값을 출력하려고 하면 오류가 발생합니다. 타 언어에서는 이렇게 하면 자동으로 null 값이 출력 되지만, 스위프트에서는 값을 nil로 초기화하지 않거나 선언을 옵셔널로 하지 않으면 컴파일 에러가 발생합니다.
-> 옵셔널에 관해서는 나중에 따로 다루도록 하겠습니다.  
-
-```swift
-var aVariable: Int
-
-print(aVariable) // 컴파일 에러
-```
-
-![Initialize Error](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/2.initialize_error.png){: width="500" .left}
-<br><br><br>
->Variable 'aVariable' used before initialized
-
-변수가 초기화 되기 전에 사용되었다는 오류입니다.
 
 ---
