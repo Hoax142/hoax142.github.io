@@ -2,7 +2,7 @@
 title: Swift) 2. 변수, 상수, 자료형
 author: Henry Oh
 date: 2021-05-08 08:20:00 +0900
-categories: [Swift, Grammer]
+categories: [Programming Language, Swift]
 tags: [Swift, Int, UInt, Double, Float, Character, String, Any, AnyObject, Nil]
 image:
   src: https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/0.swift5.png

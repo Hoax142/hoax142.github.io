@@ -2,7 +2,7 @@
 title: Swift) 3-1. 컬렉션 - 배열
 author: Henry Oh
 date: 2021-06-11 21:10:00 +0900
-categories: [Swift, Grammer]
+categories: [Programming Language, Swift]
 tags: [Swift, Array, Set, Dictionary]
 image:
   src: https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/0.swift5.png
@@ -119,7 +119,8 @@ var array1 = [1, 2, 3.3, "a"] // 컴파일 에러
 
 ![Array Type Error2](https://cdn.jsdelivr.net/gh/Hoax142/github_assets/blog/swift/7.any_array_error.png){: width="800" .left}  
 
-<br>
+
+<br><br><br><br>
 > Heterogeneous collection literal could only be inferred to '[Any]'; add explicit type annotation if this is intentional  
 
 다양한 자료형이 들어간 배열을 사용하기 위해 [Any] 타입이라는걸 명시해줘야 한다는 에러입니다.
